@@ -15,14 +15,24 @@
 
   width: 100vw;
   height: 100vh;
+  scroll-padding-top: 20px;
+  scroll-behavior: smooth;
 }
 
-#current-weather {
-  min-height: 150px;
+body,
+html {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+main {
+  scroll-snap-type: y proximity; /* Enable vertical scroll snapping */
+  overflow-y: scroll; /* Ensure that scrolling is possible */
+}
+
+#current-weather,
 #forecast {
-  min-height: 150px;
+  scroll-snap-align: center; /* Snap to the start of the element */
+  min-height: 50vh; /* Adjust the height to ensure snapping works well */
 }
 
 .forecast-container {
@@ -31,14 +41,15 @@
   justify-content: space-evenly;
   align-items: center;
 }
-body, html {
+body,
+html {
   height: 100%; /* Make sure the html and body are also taking the full height */
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #1e1e1e;
   color: #ccc;
   text-align: center;
@@ -51,7 +62,7 @@ header {
   color: #fff;
   padding: 20px 0;
   font-size: 2em;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 main {
@@ -90,7 +101,8 @@ main {
   background: #444;
 }
 
-#current-weather, #forecast {
+#current-weather,
+#forecast {
   background: #222;
   padding: 20px;
   border-radius: 10px;
@@ -114,4 +126,14 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

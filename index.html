@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+      }
+      header,
+      footer {
+        background: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+      }
+      main {
+        padding: 15px;
+      }
+      #search-bar {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      #search-button {
+        padding: 10px;
+        width: 100%;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      #search-button:hover {
+        background: #0056b3;
+      }
+      #current-weather {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      #forecast {
+        background: white;
+        padding: 20px;
+      }
+      .forecast-day {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .forecast-day:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Weather App</h1>
+    </header>
+
+    <main>
+      <section id="search-section">
+        <input type="text" id="search-bar" placeholder="Enter city name" />
+        <button id="search-button">Get Weather</button>
+      </section>
+
+      <section id="current-weather">
+        <!-- Current weather will be dynamically inserted here -->
+      </section>
+
+      <section id="forecast">
+        <h2>Forecast</h2>
+        <!-- Forecast will be dynamically inserted here -->
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Weather data provided by
+        <a href="https://openweathermap.org/" target="_blank"
+          >OpenWeatherMap API</a
+        >
+      </p>
+    </footer>
+
+    <!-- Link to your JavaScript file -->
+    <script type="module" src="main.js"></script>
+
+  </body>
+</html>

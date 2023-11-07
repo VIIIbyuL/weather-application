@@ -1,7 +1,7 @@
 document.getElementById('search-button').addEventListener('click', function() {
   const city = document.getElementById('search-bar').value;
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiKey = import.meta.env.VITE_API_KEY; // Make sure this is your WeatherAPI.com key
+  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
   fetch(url)
     .then(response => {
@@ -24,19 +24,24 @@ function updateWeatherDisplay(data) {
   weatherSection.innerHTML = ''; // Clear previous content
 
   // Check if the data object has the necessary properties
-  if (data && data.main && data.weather && data.weather.length > 0) {
+  if (data && data.current && data.location) {
     // Create and append new elements to display weather
     const cityHeader = document.createElement('h2');
-    cityHeader.textContent = data.name;
+    cityHeader.textContent = data.location.name;
     weatherSection.appendChild(cityHeader);
 
     const tempParagraph = document.createElement('p');
-    tempParagraph.textContent = `Temperature: ${data.main.temp} °C`;
+    tempParagraph.textContent = `Temperature: ${data.current.temp_c} °C`;
     weatherSection.appendChild(tempParagraph);
 
     const weatherParagraph = document.createElement('p');
-    weatherParagraph.textContent = `Weather: ${data.weather[0].main}`;
+    weatherParagraph.textContent = `Weather: ${data.current.condition.text}`;
     weatherSection.appendChild(weatherParagraph);
+
+    // Optionally, add an image for the weather condition
+    const weatherIcon = document.createElement('img');
+    weatherIcon.src = data.current.condition.icon;
+    weatherSection.appendChild(weatherIcon);
 
     // ...add more data as needed
   } else {

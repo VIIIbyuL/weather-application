@@ -2,17 +2,14 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
   width: 100vw;
   height: 100vh;
   scroll-padding-top: 20px;
@@ -72,7 +69,7 @@ body {
 header {
   background: #111;
   color: #fff;
- 
+  padding: 20px;
   font-size: 2em;
   font-weight: 200;
 }
@@ -89,11 +86,12 @@ main {
 
 #suggestions-list {
   position: absolute;
+  width: 100%;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #222;
+  background: #686767;
   border: 1px solid #333;
   border-top: none;
   border-radius: 0 0 10px 10px;
@@ -103,6 +101,18 @@ main {
   padding: 0;
   list-style: none;
   font-size: medium;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #suggestions-list li {
@@ -114,8 +124,8 @@ main {
 
 #suggestions-list li:hover {
   background: #333;
+  transform: scale(1.03);
 }
-
 
 #search-bar {
   width: 80%;
@@ -126,6 +136,11 @@ main {
   background: #222;
   color: #ddd;
   border-radius: 20px;
+  transition: border-color 0.3s ease;
+}
+
+#search-bar:focus {
+  border-color: #4e9af1;
 }
 
 #search-button {
@@ -148,8 +163,20 @@ main {
   background: #222;
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   border: 1px solid #333;
+
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .forecast-day {
@@ -164,71 +191,4 @@ main {
 a {
   color: #4e9af1;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-@media (max-width: 768px) {
-  header {
-    font-size: 1.5em;
-    padding: 10px 0;
-  }
-
-  #search-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #search-bar,
-  #search-button {
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  #current-weather,
-  #forecast {
-    margin-bottom: 10px;
-    padding: 15px;
-    scroll-snap-align: start;
-  }
-
-  .forecast-day {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  main {
-    padding: 10px;
-  }
-
-  body {
-    font-size: 14px;
-  }
-
-  .forecast-container {
-    flex-direction: column;
-    overflow-y: auto;
-    max-height: 60vh;
-  }
-}
-
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

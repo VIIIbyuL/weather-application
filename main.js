@@ -1,7 +1,7 @@
 document.getElementById("search-bar").addEventListener("input", function () {
   const userInput = this.value;
   const apiKey = import.meta.env.VITE_API_KEY;
-  const autocompleteUrl = `http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${userInput}`;
+  const autocompleteUrl = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${userInput}`;
 
   if (userInput.length > 0) {
     fetch(autocompleteUrl)

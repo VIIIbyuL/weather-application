@@ -45,7 +45,7 @@ document.getElementById("search-button").addEventListener("click", function () {
 
   hideSuggestions();
 
-  fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -55,7 +55,7 @@ document.getElementById("search-button").addEventListener("click", function () {
     .then((data) => {
       updateWeatherDisplay(data);
       return fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
       );
     })
     .then((response) => {

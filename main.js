@@ -20,7 +20,7 @@ document.getElementById("search-bar").addEventListener("input", function () {
 function showSuggestions(suggestions) {
   const suggestionsList = document.getElementById("suggestions-list");
   suggestionsList.innerHTML = "";
-  suggestionsList.style.display = 'block';
+  suggestionsList.style.display = "block";
 
   suggestions.forEach((suggestion) => {
     const suggestionItem = document.createElement("li");
@@ -36,12 +36,12 @@ function showSuggestions(suggestions) {
 function hideSuggestions() {
   const suggestionsList = document.getElementById("suggestions-list");
   suggestionsList.innerHTML = "";
-  suggestionsList.style.display = 'none';
+  suggestionsList.style.display = "none";
 }
 
 document.getElementById("search-button").addEventListener("click", function () {
   const city = document.getElementById("search-bar").value;
-  const apiKey = import.meta.env.VITE_API_KEY; 
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   hideSuggestions();
 
@@ -92,7 +92,6 @@ function updateWeatherDisplay(data) {
     const weatherIcon = document.createElement("img");
     weatherIcon.src = data.current.condition.icon;
     weatherSection.appendChild(weatherIcon);
-
   } else {
     weatherSection.textContent = "Weather data not available";
   }
@@ -124,7 +123,7 @@ function updateForecastDisplay(data) {
       forecastDiv.appendChild(minTempParagraph);
 
       const conditionImage = document.createElement("img");
-      conditionImage.src = `https:${day.day.condition.icon}`; 
+      conditionImage.src = `https:${day.day.condition.icon}`;
       forecastDiv.appendChild(conditionImage);
 
       const conditionParagraph = document.createElement("p");
